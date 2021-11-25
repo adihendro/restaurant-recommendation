@@ -10,7 +10,7 @@
   "main": "index.js",
   "devDependencies": {},
   "scripts": {
-    "start": "node ./view/index.js",
+    "start": "node ./view/script.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
