@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recommendation</title>
+    <link rel="stylesheet" href="index.css" />
+    <script defer src="index.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="content">
+            <h1 class="title">
+                <div>Sistem Rekomendasi Restoran
+                    <br> di Jakarta
+                </div>
+            </h1>
+        </div>
+
+        <div class="subtitle">Welcome!</div>
+
+        <div class="preferences">
+            <div class="preferences-content">
+                <div>
+                    <div>Lokasi Preferensi</div>
+                    <select class="selection" id="popup-unit" required>
+                        <option value="menteng">Menteng</option>
+                        <option value="kuningan">Kuningan</option>
+                        <option value="grogol">Grogol</option>
+                    </select>
+                </div>
+                <div>
+                    <div>Jenis Restoran</div>
+                    <select class="selection" id="popup-unit" required>
+                        <option value="asia">Asia</option>
+                        <option value="barat">Barat</option>
+                    </select>
+                </div>
+            </div>
+            <div class="preferences-content">
+                <div>
+                    <div>Prioritas 1</div>
+                    <select class="selection" id="popup-unit" required>
+                        <option value="asia">Asia</option>
+                        <option value="barat">Barat</option>
+                    </select>
+                </div>
+                <div>
+                    <div>Prioritas 2</div>
+                    <select class="selection" id="popup-unit" required>
+                        <option value="asia">Asia</option>
+                        <option value="barat">Barat</option>
+                    </select>
+                </div>
+                <div>
+                    <div>Prioritas 3</div>
+                    <select class="selection" id="popup-unit" required>
+                        <option value="asia">Asia</option>
+                        <option value="barat">Barat</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" id="button-find" class="button button-primary">Cari
+            restoran</button>
+
+    </div>
+</body>
+
+</html>
