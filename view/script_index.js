@@ -1,7 +1,7 @@
-const find = document.getElementById("button-back");
-find.addEventListener("click", postBack);
+const find = document.getElementById("button-find");
+find.addEventListener("click", postFind);
 
-async function postBack() {
+async function postFind() {
     // const username = form.username.value;
     // const fullname = form.fullname.value;
     // const email = form.email.value;
@@ -13,5 +13,5 @@ async function postBack() {
     //     "password": password,
     //     "role": ["ROLE_CLIENT"]
     // };
-    window.location.href = '/'
+    window.location.href = '/result'
 }
