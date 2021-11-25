@@ -1,18 +1,27 @@
-const find = document.getElementById("button-find");
-find.addEventListener("click", postFind);
+//set up library
+const express = require('express');
+const bodyParser = require('body-parser');
+const port = parseInt(process.env.PORT, 10) || 3000;
+const path = require('path');
 
-async function postFind() {
-    // const username = form.username.value;
-    // const fullname = form.fullname.value;
-    // const email = form.email.value;
-    // const password = form.password.value;
-    // const data = {
-    //     "username": username,
-    //     "fullname": fullname,
-    //     "email": email,
-    //     "password": password,
-    //     "role": ["ROLE_CLIENT"]
-    // };
-    window.location = 'result.html'
-}
+//set up express app
+const app = express();
+
+//handle static content
+app.use(express.static('.'));
+
+//handle change body to json
+app.use(bodyParser.json());
+
+//handle result page
+app.get('/result', function(req, res){
+    res.sendFile(path.join(__dirname + '/result.html'));
+});
+
+//listen for request
+app.listen(port, function(){
+    console.log(`now listening on port ${port}`);
+});
+
+
 
