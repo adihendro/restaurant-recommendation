@@ -8,7 +8,7 @@ const path = require('path');
 const app = express();
 
 //handle static content
-app.use(express.static('.'));
+app.use(express.static('./view'));
 
 //handle change body to json
 app.use(bodyParser.json());
