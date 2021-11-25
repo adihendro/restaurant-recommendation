@@ -15,4 +15,3 @@ async function postFind() {
     // };
     window.location = 'result.html'
 }
-

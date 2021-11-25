@@ -5,7 +5,7 @@
     text-align: center;
     color: white;
     --pink : #ef6277;
-    --blue : #6c70ac;
+    --purple : #6c70ac;
 }
 
 body{
@@ -25,7 +25,20 @@ body{
 }
 
 .preferences {
-    margin: 10px 15% 10px;
+    margin: 10px 20px 10px;
+}
+
+
+@media only screen and (min-width: 500px) {
+    .preferences {
+        margin: 10px 60px 10px;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .preferences {
+        margin: 10px 15vw 10px;
+    }
 }
 
 .preferences-content{
@@ -59,8 +72,8 @@ body{
 }
 .button{
     padding: 15px;
-    border: 2px solid var(--blue);
-    background-color: var(--blue);
+    border: 2px solid var(--purple);
+    background-color: var(--purple);
     font-weight: bold;
 }
 
