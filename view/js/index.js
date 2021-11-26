@@ -13,6 +13,6 @@ async function postFind() {
         "prioritas2": prioritas[1],
         "prioritas3": prioritas[2],
     };
-    console.log(data)
-    // window.location.href = '/result'
+
+    window.location.href = '/result'
 }
