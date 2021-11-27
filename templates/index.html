@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/index.css') }}">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="content">
+            <h1 class="title">
+                <div>Sistem Rekomendasi Restoran
+                    <br> di Jakarta
+                </div>
+            </h1>
+        </div>
+
+        <div class="subtitle">Welcome!</div>
+
+        <form class="preferences">
+            <div class="preferences-content">
+                <div>
+                    <div class="selection-title">Lokasi Preferensi</div>
+                    <select class="selection" id="lokasi" required>
+                    </select>
+                </div>
+                <div>
+                    <div class="selection-title">Jenis Restoran</div>
+                    <select class="selection" id="jenis" required>
+                    </select>
+                </div>
+            </div>
+            <div class="preferences-content">
+                <div>
+                    <div class="selection-title">Prioritas 1</div>
+                    <select class="selection prioritas" id="prioritas1" required>
+                        <option value="lokasi">Lokasi</option>
+                        <option value="jenis">Jenis</option>
+                        <option value="rating">Rating</option>
+                    </select>
+                </div>
+                <div>
+                    <div class="selection-title">Prioritas 2</div>
+                    <select class="selection prioritas" id="prioritas2" required>
+                        <option value="lokasi">Lokasi</option>
+                        <option value="jenis" selected>Jenis</option>
+                        <option value="rating">Rating</option>
+                    </select>
+                </div>
+                <div>
+                    <div class="selection-title">Prioritas 3</div>
+                    <select class="selection prioritas" id="prioritas3" required>
+                        <option value="lokasi">Lokasi</option>
+                        <option value="jenis">Jenis</option>
+                        <option value="rating" selected>Rating</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+
+        <button type="submit" id="button-find" class="button button-primary">Cari
+            restoran</button>
+
+    </div>
+</body>
+
+</html>
