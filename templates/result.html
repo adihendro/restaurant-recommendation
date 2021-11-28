@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/result.css') }}">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="content">
+            <h1 class="title">
+                <div>Sistem Rekomendasi Restoran <br> di Jakarta</div>
+            </h1>
+        </div>
+
+        <div class="subtitle">Results</div>
+
+        <div class="result">
+            <div id="result1">Result 1</div>
+            <div id="result2">Result 2</div>
+            <div id="result3">Result 3</div>
+        </div>
+
+    </div>
+
+    <form method="post" action="/result">
+        <input type="submit" id="button-back" class="button button-primary" value="Kembali" name="kembali"></input>
+    </form>
+</body>
+
+</html>

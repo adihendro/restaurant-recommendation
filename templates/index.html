@@ -25,12 +25,18 @@
             <div class="preferences-content">
                 <div>
                     <div class="selection-title">Lokasi Preferensi</div>
-                    <select class="selection" id="lokasi" required>
+                    <select class="selection" id="lokasi" required name=areas method="GET" action='/'>
+                        {% for area in areas %}
+                        <option value="{{ area }}" SELECTED>{{ area }}</option>"
+                        {% endfor %}
                     </select>
                 </div>
                 <div>
                     <div class="selection-title">Jenis Restoran</div>
-                    <select class="selection" id="jenis" required>
+                    <select class="selection" id="jenis" required name=types method="GET" action='/'>
+                        {% for type in types %}
+                        <option value="{{ type }}" SELECTED>{{ type }}</option>"
+                        {% endfor %}
                     </select>
                 </div>
             </div>
@@ -61,10 +67,10 @@
                 </div>
             </div>
         </form>
-
-        <button type="submit" id="button-find" class="button button-primary">Cari
-            restoran</button>
-
+        
+        <form method="post" action="/">
+            <input type="submit" id="button-find" class="button button-primary" value="Cari Restoran" name="cari-restoran"></input>
+        </form>
     </div>
 </body>
 
