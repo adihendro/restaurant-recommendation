@@ -21,21 +21,21 @@
 
         <div class="subtitle">Welcome!</div>
 
-        <form class="preferences">
+        <form class="preferences" method="post" action="/">
             <div class="preferences-content">
                 <div>
                     <div class="selection-title">Lokasi Preferensi</div>
-                    <select class="selection" id="lokasi" required name=areas method="GET" action='/'>
+                    <select class="selection" id="lokasi" required name=preference-area method="GET" action='/'>
                         {% for area in areas %}
-                        <option value="{{ area }}" SELECTED>{{ area }}</option>"
+                        <option value="{{ area }}">{{ area }}</option>"
                         {% endfor %}
                     </select>
                 </div>
                 <div>
                     <div class="selection-title">Jenis Restoran</div>
-                    <select class="selection" id="jenis" required name=types method="GET" action='/'>
+                    <select class="selection" id="jenis" required name=preference-type method="GET" action='/'>
                         {% for type in types %}
-                        <option value="{{ type }}" SELECTED>{{ type }}</option>"
+                        <option value="{{ type }}">{{ type }}</option>"
                         {% endfor %}
                     </select>
                 </div>
@@ -43,32 +43,29 @@
             <div class="preferences-content">
                 <div>
                     <div class="selection-title">Prioritas 1</div>
-                    <select class="selection prioritas" id="prioritas1" required>
-                        <option value="lokasi">Lokasi</option>
-                        <option value="jenis">Jenis</option>
-                        <option value="rating">Rating</option>
+                    <select class="selection prioritas" id="prioritas1" required name=prio-1 method="GET" action='/'>
+                        {% for prio in prios %}
+                        <option value="{{ prio }}">{{ prio }}</option>"
+                        {% endfor %}
                     </select>
                 </div>
                 <div>
                     <div class="selection-title">Prioritas 2</div>
-                    <select class="selection prioritas" id="prioritas2" required>
-                        <option value="lokasi">Lokasi</option>
-                        <option value="jenis" selected>Jenis</option>
-                        <option value="rating">Rating</option>
+                    <select class="selection prioritas" id="prioritas2" required name=prio-2 method="GET" action='/'>
+                        {% for prio in prios %}
+                        <option value="{{ prio }}">{{ prio }}</option>"
+                        {% endfor %}
                     </select>
                 </div>
                 <div>
                     <div class="selection-title">Prioritas 3</div>
-                    <select class="selection prioritas" id="prioritas3" required>
-                        <option value="lokasi">Lokasi</option>
-                        <option value="jenis">Jenis</option>
-                        <option value="rating" selected>Rating</option>
+                    <select class="selection prioritas" id="prioritas3" required name=prio-3 method="GET" action='/'>
+                        {% for prio in prios %}
+                        <option value="{{ prio }}">{{ prio }}</option>"
+                        {% endfor %}
                     </select>
                 </div>
             </div>
-        </form>
-        
-        <form method="post" action="/">
             <input type="submit" id="button-find" class="button button-primary" value="Cari Restoran" name="cari-restoran"></input>
         </form>
     </div>

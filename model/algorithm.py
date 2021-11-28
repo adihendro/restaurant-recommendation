@@ -6,9 +6,9 @@ from sklearn.metrics.pairwise import cosine_similarity
 def calculate(restoran_df, restoran_type, restoran_area, prio_1, prio_2):
     value_df = []
 
-    type_prio = (0.5 if prio_1 == "jenis" else 0.3 if prio_2 == "jenis" else 0.2)
-    area_prio = (0.5 if prio_1 == "lokasi" else 0.3 if prio_2 == "lokasi" else 0.2)
-    rating_prio = (0.5 if prio_1 == "rating" else 0.3 if prio_2 == "rating" else 0.2)
+    type_prio = (0.5 if prio_1 == "Jenis" else 0.3 if prio_2 == "Jenis" else 0.2)
+    area_prio = (0.5 if prio_1 == "Lokasi" else 0.3 if prio_2 == "Lokasi" else 0.2)
+    rating_prio = (0.5 if prio_1 == "Rating" else 0.3 if prio_2 == "Rating" else 0.2)
 
     for x in range(len(restoran_df)):
         resto_value = 0
