@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect
+from flask.helpers import url_for
 import pandas as pd
 from model import algorithm
+import re
 
 # Data Loading
 restoran_df = pd.read_csv('./data/dataFinal.csv')
@@ -51,9 +53,77 @@ def index():
 
 @app.route('/result', methods = ['GET', 'POST'])
 def result():
+    global weight_recommendation
+
     if request.method == 'POST':
         if request.form.get('kembali') == 'Kembali':
             return redirect('/')
+        elif request.form.get('more-result-1') == 'Other Similar Result':
+            nama = request.form['result-1']
+            weight_recommendation = algorithm.content_based_filtering(restoran_df, nama)
+            nama = nama.lower()
+            nama = re.sub(r'[^.,a-zA-Z0-9 \n\.]',' ',nama)
+            nama = re.sub(r'[^\w\s]','',nama)
+            nama = re.sub('[\s]+', ' ', nama)
+            nama = nama.replace(" ", "")
+            return redirect(url_for('specific_result', nama=nama))
+        elif request.form.get('more-result-2') == 'Other Similar Result':
+            nama = request.form['result-2']
+            weight_recommendation = algorithm.content_based_filtering(restoran_df, nama)
+            nama = nama.lower()
+            nama = re.sub(r'[^.,a-zA-Z0-9 \n\.]',' ',nama)
+            nama = re.sub(r'[^\w\s]','',nama)
+            nama = re.sub('[\s]+', ' ', nama)
+            nama = nama.replace(" ", "")   
+            return redirect(url_for('specific_result', nama=nama))
+        elif request.form.get('more-result-3') == 'Other Similar Result':
+            nama = request.form['result-3']
+            weight_recommendation = algorithm.content_based_filtering(restoran_df, nama)
+            nama = nama.lower()
+            nama = re.sub(r'[^.,a-zA-Z0-9 \n\.]',' ',nama)
+            nama = re.sub(r'[^\w\s]','',nama)
+            nama = re.sub('[\s]+', ' ', nama)
+            nama = nama.replace(" ", "")   
+            return redirect(url_for('specific_result', nama=nama))
+        else:
+            pass
+    elif request.method == 'GET':
+        return render_template('result.html', result1=weight_recommendation[0], result2=weight_recommendation[1], result3=weight_recommendation[2])
+
+@app.route('/result/<nama>', methods = ['GET', 'POST'])
+def specific_result(nama):
+    global weight_recommendation
+
+    if request.method == 'POST':
+        if request.form.get('kembali') == 'Kembali':
+            return redirect('/')
+        elif request.form.get('more-result-1') == 'Other Similar Result':
+            nama = request.form['result-1']
+            weight_recommendation = algorithm.content_based_filtering(restoran_df, nama)
+            nama = nama.lower()
+            nama = re.sub(r'[^.,a-zA-Z0-9 \n\.]',' ',nama)
+            nama = re.sub(r'[^\w\s]','',nama)
+            nama = re.sub('[\s]+', ' ', nama)
+            nama = nama.replace(" ", "")   
+            return redirect('/result/')
+        elif request.form.get('more-result-2') == 'Other Similar Result':
+            nama = request.form['result-2']
+            weight_recommendation = algorithm.content_based_filtering(restoran_df, nama)
+            nama = nama.lower()
+            nama = re.sub(r'[^.,a-zA-Z0-9 \n\.]',' ',nama)
+            nama = re.sub(r'[^\w\s]','',nama)
+            nama = re.sub('[\s]+', ' ', nama)
+            nama = nama.replace(" ", "")   
+            return redirect(url_for('specific_result', nama=nama))
+        elif request.form.get('more-result-3') == 'Other Similar Result':
+            nama = request.form['result-3']
+            weight_recommendation = algorithm.content_based_filtering(restoran_df, nama)
+            nama = nama.lower()
+            nama = re.sub(r'[^.,a-zA-Z0-9 \n\.]',' ',nama)
+            nama = re.sub(r'[^\w\s]','',nama)
+            nama = re.sub('[\s]+', ' ', nama)
+            nama = nama.replace(" ", "")   
+            return redirect(url_for('specific_result', nama=nama))
         else:
             pass
     elif request.method == 'GET':
