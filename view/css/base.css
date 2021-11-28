@@ -10,6 +10,7 @@
     --purple2 : #6c70ac;
     --purple3 : #3d4166;
     --border-radius: 5px;
+    --selection-width: 165px;
 }
 
 body{
@@ -37,23 +38,11 @@ body{
     user-select: none;
 }
 
-.selection{
-    padding: 5px 0px;
-    background-color: #2a2d46;
-    min-width: 165px;
-}
-
 .button{
     padding: 15px;
     border: 2px solid var(--purple3);
     background-color: var(--purple3);
     font-weight: bold;
-}
-
-.selection:hover {
-    transition: 0.3s;
-    background-color: var(--pink);
-    cursor: pointer;
 }
 
 .button:hover {
