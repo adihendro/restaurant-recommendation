@@ -105,5 +105,5 @@ dist
 
 .DS_Store
 .node_modules
-**/__pycache__
-**/.ipynb_checkpoints
+model/__pycache__
+data/.ipynb_checkpoints
