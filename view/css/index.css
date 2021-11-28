@@ -29,3 +29,39 @@
 .selection-title {
     text-align: left;
 }
+
+.selection{
+    padding: 5px 0px;
+    background-color: var(--purple1);
+    min-width: var(--selection-width);
+}
+
+.selection:hover {
+    transition: 0.3s;
+    background-color: var(--pink);
+    cursor: pointer;
+}
+
+.prioritas {
+    margin: 8px 0;
+    padding: 5px 15px;
+    border: 2px solid var(--purple3);
+    background-color: var(--purple1);
+    border-radius: var(--border-radius);
+    min-width: var(--selection-width);
+}
+
+.drag-start {
+    opacity: 0.5;
+}
+
+.drag-enter {
+    transition: 0.2s;
+    transform: scale(115%);
+}
+
+.prioritas:hover {
+    transition: 0.3s;
+    cursor: pointer;
+    border: 2px dashed #ccc;
+}

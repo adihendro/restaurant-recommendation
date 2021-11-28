@@ -7,6 +7,7 @@
     <title>Recommendation</title>
     <link rel="stylesheet" href="css/index.css" />
     <script defer src="js/index.js"></script>
+    <script defer src="js/index_populate.js"></script>
 </head>
 
 <body>
@@ -26,38 +27,26 @@
             <div class="preferences-content">
                 <div>
                     <div class="selection-title">Lokasi Preferensi</div>
-                    <select class="selection" id="lokasi" required>
-                    </select>
+                    <select class="selection" id="lokasi" required></select>
                 </div>
                 <div>
                     <div class="selection-title">Jenis Restoran</div>
-                    <select class="selection" id="jenis" required>
-                    </select>
+                    <select class="selection" id="jenis" required></select>
                 </div>
             </div>
             <div class="preferences-content">
                 <div>
                     <div class="selection-title">Prioritas 1</div>
-                    <select class="selection prioritas" id="prioritas1" required>
-                        <option value="lokasi">Lokasi</option>
-                        <option value="jenis">Jenis</option>
-                        <option value="rating">Rating</option>
-                    </select>
+                    <div class="prioritas" id="prioritas1" draggable="true">Lokasi</div>
                 </div>
                 <div>
                     <div class="selection-title">Prioritas 2</div>
-                    <select class="selection prioritas" id="prioritas2" required>
-                        <option value="lokasi">Lokasi</option>
-                        <option value="jenis" selected>Jenis</option>
-                        <option value="rating">Rating</option>
+                    <div class="prioritas" id="prioritas2" draggable="true">Jenis</div>
                     </select>
                 </div>
                 <div>
                     <div class="selection-title">Prioritas 3</div>
-                    <select class="selection prioritas" id="prioritas3" required>
-                        <option value="lokasi">Lokasi</option>
-                        <option value="jenis">Jenis</option>
-                        <option value="rating" selected>Rating</option>
+                    <div class="prioritas" id="prioritas3" draggable="true">Rating</div>
                     </select>
                 </div>
             </div>
