@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/index.css') }}">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="content">
+            <h1 class="title">
+                <div>Sistem Rekomendasi Restoran
+                    <br> di Jakarta
+                </div>
+            </h1>
+        </div>
+
+        <div class="subtitle">Welcome!</div>
+
+        <form class="preferences" method="post" action="/">
+            <div class="preferences-content">
+                <div>
+                    <div class="selection-title">Lokasi preferensi</div>
+                    <select class="selection" required name=preference-area method="GET" action='/'>
+                        {% for area in areas %}
+                        <option value="{{ area }}">{{ area }}</option>"
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <div class="selection-title">Jenis restoran</div>
+                    <select class="selection" required name=preference-type method="GET" action='/'>
+                        {% for type in types %}
+                        <option value="{{ type }}">{{ type }}</option>"
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="preferences-content">
+                <div>
+                    <div class="selection-title">Prioritas 1</div>
+                    <input class="prioritas" required name="prio-1" method="GET" action='/' value="Jenis">
+                    </input>
+                </div>
+                <div>
+                    <div class="selection-title">Prioritas 2</div>
+                    <input class="prioritas" required name="prio-2" method="GET" action='/' value="Lokasi">
+                    </input>
+                </div>
+                <div>
+                    <div class="selection-title">Prioritas 3</div>
+                    <input class="prioritas" required name="prio-3" method="GET" action='/' value="Rating">
+                    </input>
+                </div>
+            </div>
+            <input type="submit" id="button-find" class="button" value="Cari Restoran" name="cari-restoran"></input>
+        </form>
+    </div>
+</body>
+
+<script>
+    var dragPrioritas = document.getElementsByClassName("prioritas");
+    function populatePrioritas() {
+        for (i = 0; i < dragPrioritas.length; i++) {
+            dragPrioritas[i].draggable = true
+            dragPrioritas[i].ondragstart = (e) => { dragStart(e) }
+            dragPrioritas[i].ondragend = (e) => { dragEnd(e) }
+            dragPrioritas[i].ondragenter = (e) => { dragEnter(e) }
+            dragPrioritas[i].ondragover = (e) => { dragOver(e) }
+            dragPrioritas[i].ondragleave = (e) => { dragLeave(e) }
+            dragPrioritas[i].ondrop = (e) => { drop(e) }
+        }
+    }
+
+    function dragStart(e) {
+        e.target.classList.add("drag-start");
+        e.dataTransfer.setData("value", e.target.value);
+        e.dataTransfer.setData("name", e.target.getAttribute('name'));
+    }
+
+    function dragEnd(e) {
+        e.target.classList.remove("drag-start");
+    }
+
+    function dragEnter(event) {
+        if (!event.target.classList.contains("drag-start")) {
+            event.target.classList.add("drag-enter");
+        }
+    }
+
+    function dragOver(e) {
+        e.preventDefault();
+    }
+
+    function dragLeave(e) {
+        e.target.classList.remove("drag-enter");
+    }
+
+    function drop(e) {
+        e.preventDefault();
+        e.target.classList.remove("drag-enter");
+
+        var sourceElementValue = e.dataTransfer.getData("value");
+        var sourceElementName = e.dataTransfer.getData("name");
+        var sourceElement = document.getElementsByName(sourceElementName)[0];
+        var targetElement = e.target.value;
+
+        e.target.value = sourceElement.value;
+        sourceElement.value = targetElement;
+
+        e.target.classList.remove("drag-start");
+    }
+
+    populatePrioritas();
+</script>
+
+</html>

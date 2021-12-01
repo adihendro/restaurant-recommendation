@@ -34,6 +34,7 @@ function populateOption(n, ul) {
 var dragPrioritas = document.getElementsByClassName("prioritas");
 function draggablePrioritas() {
     for (i = 0; i < dragPrioritas.length; i++) {
+        dragPrioritas[i].draggable = true
         dragPrioritas[i].ondragstart = (e) => { dragStart(e) }
         dragPrioritas[i].ondragend = (e) => { dragEnd(e) }
         dragPrioritas[i].ondragenter = (e) => { dragEnter(e) }
@@ -82,5 +83,5 @@ function drop(e) {
 
 draggablePrioritas();
 
-areas.forEach(populateLokasi)
-types.forEach(populateJenis)
+// areas.forEach(populateLokasi)
+// types.forEach(populateJenis)

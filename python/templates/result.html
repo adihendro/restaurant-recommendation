@@ -21,30 +21,33 @@
 
         <div class="result">
             <div id="result1">
-                <div>
+                <div class="result-name">
                     {{ result1 }}
                 </div>
                 <form method="post" action="/result">
                     <input type="hidden" name="result-1" method="GET" action="/result" value="{{ result1 }}"></input>
-                    <input type="submit" id="button-more-result" class="button button-primary" value="Other Similar Result" name="more-result-1"></input>
+                    <input type="submit" id="button-more-result" class="button button-secondary"
+                        value="Other Similar Result" name="more-result-1"></input>
                 </form>
-            </div> 
+            </div>
             <div id="result2">
-                <div>
+                <div class="result-name">
                     {{ result2 }}
                 </div>
                 <form method="post" action="/result">
                     <input type="hidden" name="result-2" method="GET" action="/result" value="{{ result2 }}"></input>
-                    <input type="submit" id="button-more-result" class="button button-primary" value="Other Similar Result" name="more-result-2"></input>
+                    <input type="submit" id="button-more-result" class="button button-secondary"
+                        value="Other Similar Result" name="more-result-2"></input>
                 </form>
             </div>
             <div id="result3">
-                <div>
+                <div class="result-name">
                     {{ result3 }}
                 </div>
                 <form method="post" action="/result">
                     <input type="hidden" name="result-3" method="GET" action="/result" value="{{ result3 }}"></input>
-                    <input type="submit" id="button-more-result" class="button button-primary" method="POST" action="/result" value="Other Similar Result" name="more-result-3"></input>
+                    <input type="submit" id="button-more-result" class="button button-secondary" method="POST"
+                        action="/result" value="Other Similar Result" name="more-result-3"></input>
                 </form>
             </div>
         </div>

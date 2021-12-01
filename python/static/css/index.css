@@ -1,0 +1,69 @@
+@import "base.css";
+
+
+.preferences {
+    margin: 10px 20px 10px;
+}
+
+@media only screen and (min-width: 750px) {
+    .preferences {
+        max-width: 700px;
+        margin: 10px auto 10px;
+    }
+}
+
+.preferences-content{
+    background-color: #3d4166;
+    border-radius: 4px;
+    padding: 5px 20px;
+    margin: 20px 0;
+}
+
+.preferences-content > div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.selection-title {
+    text-align: left;
+}
+
+.selection{
+    padding: 10px 0px;
+    background-color: var(--purple1);
+    min-width: var(--selection-width);
+}
+
+.selection:hover {
+    transition: 0.3s;
+    background-color: var(--purple2);
+    cursor: pointer;
+}
+
+.prioritas {
+    margin: 8px 0;
+    padding: 5px 0;
+    border: 2px solid var(--purple1);
+    background-color: var(--purple1);
+    border-radius: var(--border-radius);
+    min-width: var(--selection-width);
+    user-select: none;
+    font-size: 1rem;
+}
+
+.drag-start {
+    opacity: 0.5;
+}
+
+.drag-enter {
+    transition: 0.2s;
+    transform: scale(115%);
+}
+
+.prioritas:hover {
+    transition: 0.3s;
+    cursor: pointer;
+    border: 2px dashed #ccc;
+}
