@@ -8,12 +8,9 @@ from sklearn.metrics.pairwise import cosine_similarity
 def calculate(restoran_df, restoran_type, restoran_area, prio_1, prio_2):
     value_df = []
 
-    type_prio = (0.5 if prio_1 == "Jenis" else 0.3 if prio_2 ==
-                 "Jenis" else 0.2)
-    area_prio = (0.5 if prio_1 == "Lokasi" else 0.3 if prio_2 ==
-                 "Lokasi" else 0.2)
-    rating_prio = (0.5 if prio_1 ==
-                   "Rating" else 0.3 if prio_2 == "Rating" else 0.2)
+    type_prio = (0.8 if prio_1 == "Jenis" else 0.15 if prio_2 == "Jenis" else 0.05)
+    area_prio = (0.8 if prio_1 == "Lokasi" else 0.15 if prio_2 == "Lokasi" else 0.05)
+    rating_prio = (0.8 if prio_1 == "Rating" else 0.15 if prio_2 == "Rating" else 0.05)
 
     for x in range(len(restoran_df)):
         resto_value = 0
@@ -24,9 +21,7 @@ def calculate(restoran_df, restoran_type, restoran_area, prio_1, prio_2):
         if restoran_area == str(restoran_df[restoran_df['Restaurant_ID'] == x]['Area'].values[0]):
             resto_value += area_prio * 1
 
-        resto_value += rating_prio * \
-            (restoran_df[restoran_df['Restaurant_ID'] == x]
-             ['Rating'].values[0]/5)
+        resto_value += rating_prio * (restoran_df[restoran_df['Restaurant_ID'] == x]['Rating'].values[0]/5)
 
         value_df.append(resto_value)
 
@@ -36,18 +31,16 @@ def calculate(restoran_df, restoran_type, restoran_area, prio_1, prio_2):
 def weighted_filtering(restoran_df, jenis, lokasi, prio_1, prio_2):
     recommendation = []
 
-    restoran_df = restoran_df.sort_values(by='Restaurant_ID')
+    if 'Value' in restoran_df.columns:
+        restoran_df = restoran_df.drop(['Value'], axis=1)
 
     value_df = calculate(restoran_df, jenis, lokasi, prio_1, prio_2)
-
-    restoran_df = restoran_df.sort_values(by='Restaurant_ID')
     restoran_df['Value'] = value_df
     restoran_df = restoran_df.sort_values(by='Value', ascending=False)
 
     for x in range(3):
         recommendation.append(restoran_df['Name'].values[x])
 
-    print(recommendation)
     return recommendation
 
 # Content Based Filtering

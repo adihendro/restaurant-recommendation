@@ -20,6 +20,7 @@ app.debug = True
 @app.route('/', methods=['GET', 'POST'])
 def index():
     global weight_recommendation
+    global restoran_df
 
     areas = ["Setiabudi", "Dharmawangsa", "Thamrin", "Senopati", "SCBD", "Fatmawati", "Kemang", "Sudirman",
              "Menteng", "Blok M", "Kuningan", "Melawai", "Bogor Utara", "Gandaria", "Cikini", "Senayan",
@@ -44,6 +45,8 @@ def index():
             preference_type = request.form['preference-type']
             preference_prio_1 = request.form.get('prio-1')
             preference_prio_2 = request.form.get('prio-2')
+
+            restoran_df = restoran_df.sort_values(by='Restaurant_ID')
 
             weight_recommendation = algorithm.weighted_filtering(
                 restoran_df, preference_type, preference_area, preference_prio_1, preference_prio_2)
