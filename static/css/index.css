@@ -48,7 +48,6 @@
     border: 2px solid var(--purple1);
     background-color: var(--purple1);
     border-radius: var(--border-radius);
-    min-width: var(--selection-width);
     user-select: none;
     font-size: 1rem;
 }

@@ -15,7 +15,7 @@ def calculate(restoran_df, restoran_type, restoran_area, prio_1, prio_2):
     for x in range(len(restoran_df)):
         resto_value = 0
 
-        if restoran_type in str(restoran_df[restoran_df['Restaurant_ID'] == x]['Type'].values[0]):
+        if restoran_type == str(restoran_df[restoran_df['Restaurant_ID'] == x]['Type'].values[0]):
             resto_value += type_prio * 1
 
         if restoran_area == str(restoran_df[restoran_df['Restaurant_ID'] == x]['Area'].values[0]):
