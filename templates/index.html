@@ -109,8 +109,11 @@
         var sourceElement = document.getElementsByName(sourceElementName)[0];
         var targetElement = e.target.value;
 
+        console.log(sourceElement.value);
+
         e.target.value = sourceElement.value;
         sourceElement.value = targetElement;
+        console.log(sourceElement.value);
 
         e.target.classList.remove("drag-start");
     }
